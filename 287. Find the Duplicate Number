@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+    // Binary Search
+        int s=0,e=nums.size()-1;
+        
+        while(s<=e)
+        {
+            int mid=s+(e-s)/2;
+            int c=0;
+            for(int i:nums)
+            {
+                if(i<=mid)
+                    c++;
+            }
+            
+            if(c<=mid)
+            {
+                s=mid+1;
+            }
+            else
+            {
+                e=mid-1;
+            }
+        }
+        return s;
+    }
+};
+
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+    // Brute Force Approach
+        sort(nums.begin(),nums.end());
+        int ans;
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]==nums[i+1])
+            {
+                ans = nums[i];
+                break;
+            }
+        }
+        return ans;
+    }
+};
+
