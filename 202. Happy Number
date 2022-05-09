@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        int c=0;
+        while(n!=0)
+        {
+            int res = n%10;
+            c+=pow(res,2);
+            n/=10;
+        }
+        
+        if(c==1) return true;
+        if(c!=1 && c<5) return false;
+        
+        return isHappy(c);
+    }
+};
