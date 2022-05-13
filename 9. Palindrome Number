@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        string res = to_string(x);
+        int i=0,j=res.size()-1;
+        
+        while(i<=j)
+        {
+            if(res[i++]!=res[j--])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
