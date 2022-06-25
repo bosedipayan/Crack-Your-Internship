@@ -14,7 +14,7 @@ public:
         ListNode* res=new ListNode();
         ListNode* ptr=res;
         
-        int l,h,c=0;
+        int l=0,h=0,c=0;
         
         while(l1 || l2 || c)
         {
