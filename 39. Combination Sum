@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void checkBacktrack(int idx, int target, vector<int>& candidates, vector<vector<int>>& ans,vector<int>& v)
+    {
+        if(idx==candidates.size())
+        {
+            if(target==0)
+            {
+                ans.push_back(v);
+            }
+            return;
+        }
+        
+        if(candidates[idx] <= target)
+        {
+            v.push_back(candidates[idx]);
+            checkBacktrack(idx,target-candidates[idx],candidates,ans,v);
+            v.pop_back();
+        }
+        
+        checkBacktrack(idx+1,target,candidates,ans,v);
+    }
+    
+    
+    
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> ans;
+        vector<int> v;
+        checkBacktrack(0, target, candidates,ans,v);
+        return ans;
+    }
+};
